@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NexaHeavy.otf</string>
+		<string>NexaBlack.otf</string>
+		<string>Nexa-Regular-Italic.otf</string>
+		<string>Nexa-Light.otf</string>
+		<string>Nexa-Book.otf</string>
+		<string>Nexa-Bold.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -43,6 +52,26 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb584604298397015</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>584604298397015</string>
+	<key>FacebookDisplayName</key>
+	<string>Fast Brothers</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 </dict>
 </plist>

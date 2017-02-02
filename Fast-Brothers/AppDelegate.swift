@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Parse
+import Bolts
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +20,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        let configuration = ParseClientConfiguration {
+//            $0.applicationId = "Zj3PVEMAe9GNGaRRxUvFIvG3p2Wm9UNJtBydmb4I"
+//            $0.clientKey = "ys4pk5POFL3kXbqHUOwmEP8E1XAxYxsrs2AK8ZUC"
+//            $0.server = "https://parseapi.back4app.com"
+//        }
+//        
+//        Parse.initialize(with: configuration)
+//        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+//        
+//        PFUser.enableRevocableSessionInBackground()
+        
         return true
+            //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+//        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+//    }
+    
+//    func application(_ application: UIApplication,
+//                     open url: URL,
+//                     sourceApplication: String?,
+//                     annotation: Any) -> Bool {
+//        return FBSDKApplicationDelegate.sharedInstance().application(application,
+//                                                                     open: url as URL!,
+//                                                                     sourceApplication: sourceApplication,
+//                                                                     annotation: annotation)
+//    }
+    
+    //Make sure it isn't already declared in the app delegate (possible redefinition of func error)
+    func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

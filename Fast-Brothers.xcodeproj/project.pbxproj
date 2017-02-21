@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC87754A1E420C4B00AE6E31 /* loginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8775491E420C4B00AE6E31 /* loginTableViewController.swift */; };
+		FC0228361E48B2A40070447B /* newChallengeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0228351E48B2A40070447B /* newChallengeTableViewController.swift */; };
+		FC0228381E48C4DF0070447B /* timerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0228371E48C4DF0070447B /* timerTableViewController.swift */; };
+		FC3D28C71E43C2D60036938A /* challengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D28C61E43C2D60036938A /* challengeTableViewCell.swift */; };
 		FC87754F1E420E2900AE6E31 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC87754B1E420E2900AE6E31 /* Bolts.framework */; };
 		FC8775501E420E2900AE6E31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC87754C1E420E2900AE6E31 /* FBSDKCoreKit.framework */; };
 		FC8775511E420E2900AE6E31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC87754D1E420E2900AE6E31 /* FBSDKLoginKit.framework */; };
@@ -20,11 +22,8 @@
 		FC8775701E42452D00AE6E31 /* NexaHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC87756A1E42452D00AE6E31 /* NexaHeavy.otf */; };
 		FC8C575D1E392E4700D9576D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C575C1E392E4700D9576D /* AppDelegate.swift */; };
 		FC8C57641E392E4700D9576D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8C57621E392E4700D9576D /* Main.storyboard */; };
-		FC8C57661E392E4700D9576D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8C57651E392E4700D9576D /* Assets.xcassets */; };
 		FC8C57691E392E4700D9576D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8C57671E392E4700D9576D /* LaunchScreen.storyboard */; };
 		FC8C57711E39336300D9576D /* challengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C57701E39336300D9576D /* challengeViewController.swift */; };
-		FC8C57751E3933B400D9576D /* timerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C57741E3933B400D9576D /* timerViewController.swift */; };
-		FC8C57771E3933F300D9576D /* recordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8C57761E3933F300D9576D /* recordViewController.swift */; };
 		FC8C577F1E393EAE00D9576D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C57791E393EAE00D9576D /* Bolts.framework */; };
 		FC8C57801E393EAE00D9576D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C577A1E393EAE00D9576D /* Parse.framework */; };
 		FC8C57811E393EAE00D9576D /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C577B1E393EAE00D9576D /* ParseFacebookUtils.framework */; };
@@ -41,10 +40,19 @@
 		FC8C57951E393F2800D9576D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C57941E393F2800D9576D /* SystemConfiguration.framework */; };
 		FC8C57971E393F4700D9576D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C57961E393F4700D9576D /* libz.tbd */; };
 		FC8C57991E393F5300D9576D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8C57981E393F5300D9576D /* libsqlite3.tbd */; };
+		FCC8AB501E5B34AB0002C9E6 /* resultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8AB4F1E5B34AB0002C9E6 /* resultsViewController.swift */; };
+		FCC8AB521E5B3B9F0002C9E6 /* timerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8AB511E5B3B9F0002C9E6 /* timerViewController.swift */; };
+		FCC8AB541E5B721B0002C9E6 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8AB531E5B721B0002C9E6 /* Clock.swift */; };
+		FCFC73701E48F6AB007AF432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFC736F1E48F6AB007AF432 /* Assets.xcassets */; };
+		FCFEAB921E573E1F005848C6 /* challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFEAB911E573E1F005848C6 /* challenge.swift */; };
+		FCFEAB951E5779D5005848C6 /* recordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFEAB941E5779D5005848C6 /* recordTableViewController.swift */; };
+		FCFEAB971E5780DF005848C6 /* recordOfChallengeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFEAB961E5780DF005848C6 /* recordOfChallengeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FC8775491E420C4B00AE6E31 /* loginTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginTableViewController.swift; sourceTree = "<group>"; };
+		FC0228351E48B2A40070447B /* newChallengeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newChallengeTableViewController.swift; sourceTree = "<group>"; };
+		FC0228371E48C4DF0070447B /* timerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timerTableViewController.swift; sourceTree = "<group>"; };
+		FC3D28C61E43C2D60036938A /* challengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = challengeTableViewCell.swift; path = myCells/challengeTableViewCell.swift; sourceTree = "<group>"; };
 		FC87754B1E420E2900AE6E31 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = SDK/Bolts.framework; sourceTree = "<group>"; };
 		FC87754C1E420E2900AE6E31 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = SDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FC87754D1E420E2900AE6E31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = SDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -58,12 +66,9 @@
 		FC8C57591E392E4700D9576D /* Fast-Brothers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fast-Brothers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8C575C1E392E4700D9576D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC8C57631E392E4700D9576D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FC8C57651E392E4700D9576D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC8C57681E392E4700D9576D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC8C576A1E392E4700D9576D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC8C57701E39336300D9576D /* challengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = challengeViewController.swift; sourceTree = "<group>"; };
-		FC8C57741E3933B400D9576D /* timerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timerViewController.swift; sourceTree = "<group>"; };
-		FC8C57761E3933F300D9576D /* recordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordViewController.swift; sourceTree = "<group>"; };
 		FC8C57791E393EAE00D9576D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FC8C577A1E393EAE00D9576D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FC8C577B1E393EAE00D9576D /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -80,6 +85,13 @@
 		FC8C57941E393F2800D9576D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FC8C57961E393F4700D9576D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FC8C57981E393F5300D9576D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		FCC8AB4F1E5B34AB0002C9E6 /* resultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultsViewController.swift; sourceTree = "<group>"; };
+		FCC8AB511E5B3B9F0002C9E6 /* timerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timerViewController.swift; sourceTree = "<group>"; };
+		FCC8AB531E5B721B0002C9E6 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Clock.swift; path = Classes/Clock.swift; sourceTree = "<group>"; };
+		FCFC736F1E48F6AB007AF432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCFEAB911E573E1F005848C6 /* challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = challenge.swift; path = Classes/challenge.swift; sourceTree = "<group>"; };
+		FCFEAB941E5779D5005848C6 /* recordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordTableViewController.swift; sourceTree = "<group>"; };
+		FCFEAB961E5780DF005848C6 /* recordOfChallengeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordOfChallengeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC3D28C81E43C30F0036938A /* myCells */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D28C61E43C2D60036938A /* challengeTableViewCell.swift */,
+			);
+			name = myCells;
+			sourceTree = "<group>";
+		};
 		FC8775711E42453600AE6E31 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,13 +166,18 @@
 		FC8C575B1E392E4700D9576D /* Fast-Brothers */ = {
 			isa = PBXGroup;
 			children = (
+				FCFEAB931E573E2C005848C6 /* classes */,
+				FC3D28C81E43C30F0036938A /* myCells */,
 				FC8775711E42453600AE6E31 /* Fonts */,
+				FCFC736F1E48F6AB007AF432 /* Assets.xcassets */,
 				FC8C575C1E392E4700D9576D /* AppDelegate.swift */,
 				FC8C57701E39336300D9576D /* challengeViewController.swift */,
-				FC8C57741E3933B400D9576D /* timerViewController.swift */,
-				FC8C57761E3933F300D9576D /* recordViewController.swift */,
-				FC8775491E420C4B00AE6E31 /* loginTableViewController.swift */,
-				FC8C57651E392E4700D9576D /* Assets.xcassets */,
+				FC0228351E48B2A40070447B /* newChallengeTableViewController.swift */,
+				FCC8AB4F1E5B34AB0002C9E6 /* resultsViewController.swift */,
+				FC0228371E48C4DF0070447B /* timerTableViewController.swift */,
+				FCC8AB511E5B3B9F0002C9E6 /* timerViewController.swift */,
+				FCFEAB941E5779D5005848C6 /* recordTableViewController.swift */,
+				FCFEAB961E5780DF005848C6 /* recordOfChallengeTableViewController.swift */,
 				FC8C57621E392E4700D9576D /* Main.storyboard */,
 				FC8C57671E392E4700D9576D /* LaunchScreen.storyboard */,
 				FC8C576A1E392E4700D9576D /* Info.plist */,
@@ -194,6 +219,15 @@
 				FC8C57861E393EE700D9576D /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCFEAB931E573E2C005848C6 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				FCC8AB531E5B721B0002C9E6 /* Clock.swift */,
+				FCFEAB911E573E1F005848C6 /* challenge.swift */,
+			);
+			name = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,11 +293,11 @@
 				FC87756D1E42452D00AE6E31 /* Nexa-Light.otf in Resources */,
 				FC8C57691E392E4700D9576D /* LaunchScreen.storyboard in Resources */,
 				FC8775701E42452D00AE6E31 /* NexaHeavy.otf in Resources */,
-				FC8C57661E392E4700D9576D /* Assets.xcassets in Resources */,
 				FC87756B1E42452D00AE6E31 /* Nexa-Bold.otf in Resources */,
 				FC8C57641E392E4700D9576D /* Main.storyboard in Resources */,
 				FC87756F1E42452D00AE6E31 /* NexaBlack.otf in Resources */,
 				FC87756E1E42452D00AE6E31 /* Nexa-Regular-Italic.otf in Resources */,
+				FCFC73701E48F6AB007AF432 /* Assets.xcassets in Resources */,
 				FC87756C1E42452D00AE6E31 /* Nexa-Book.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,11 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC8C57751E3933B400D9576D /* timerViewController.swift in Sources */,
+				FC0228381E48C4DF0070447B /* timerTableViewController.swift in Sources */,
+				FC3D28C71E43C2D60036938A /* challengeTableViewCell.swift in Sources */,
+				FC0228361E48B2A40070447B /* newChallengeTableViewController.swift in Sources */,
+				FCFEAB971E5780DF005848C6 /* recordOfChallengeTableViewController.swift in Sources */,
+				FCFEAB921E573E1F005848C6 /* challenge.swift in Sources */,
+				FCFEAB951E5779D5005848C6 /* recordTableViewController.swift in Sources */,
+				FCC8AB521E5B3B9F0002C9E6 /* timerViewController.swift in Sources */,
 				FC8C575D1E392E4700D9576D /* AppDelegate.swift in Sources */,
-				FC87754A1E420C4B00AE6E31 /* loginTableViewController.swift in Sources */,
 				FC8C57711E39336300D9576D /* challengeViewController.swift in Sources */,
-				FC8C57771E3933F300D9576D /* recordViewController.swift in Sources */,
+				FCC8AB501E5B34AB0002C9E6 /* resultsViewController.swift in Sources */,
+				FCC8AB541E5B721B0002C9E6 /* Clock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = ZXYSZCCRU7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -407,8 +448,9 @@
 					"$(PROJECT_DIR)/Fast-Brothers/SDK",
 				);
 				INFOPLIST_FILE = "Fast-Brothers/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nicolauatala.Fast-Brothers";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nicolauAtala.Fast-Brothers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -418,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = ZXYSZCCRU7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -425,8 +468,9 @@
 					"$(PROJECT_DIR)/Fast-Brothers/SDK",
 				);
 				INFOPLIST_FILE = "Fast-Brothers/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nicolauatala.Fast-Brothers";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nicolauAtala.Fast-Brothers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

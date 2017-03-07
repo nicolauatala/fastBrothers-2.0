@@ -1,8 +1,8 @@
 //
-//  challengeViewController.swift
+//  settingsTableViewController.swift
 //  Fast-Brothers
 //
-//  Created by Nicolau Atala Pelluzi on 25/01/17.
+//  Created by Nicolau Atala Pelluzi on 21/02/17.
 //  Copyright © 2017 Nicolau Atala Pelluzi. All rights reserved.
 //
 
@@ -10,117 +10,53 @@ import UIKit
 import Parse
 import ParseUI
 
-class challengeViewController: UIViewController, UITableViewDataSource, UITabBarDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
-    
-    @IBOutlet weak var challengesTableView: UITableView!
+class settingsTableViewController: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var useremail: UILabel!
+    @IBOutlet weak var userchallenges: UILabel!
     
     var backgroundImage : UIImageView!
-    let refresh = UIRefreshControl()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Provas"
-        challengesTableView.tableFooterView = UIView()
+        self.title = "Informações"
+        tableView.tableFooterView = UIView()
         
-        //let newCha = Challenge(id: "1", name: "Prova Teste", password: "123", turns: 2, especial: 2, WhoRegistered: PFUser.current()!, status: "Em andamento")
-        //challengesObjs.append(newCha)
+        username.text = PFUser.current()?.username
+        useremail.text = PFUser.current()?.email
         
-        //let newUser = PFUser()
-        //let newCha2 = Challenge(id: "2", name: "Prova Teste", password: "123", turns: 3, especial: 2, WhoRegistered: newUser, status: "Em andamento")
-        //challengesObjs.append(newCha2)
-        
-        if (PFUser.current() == nil){
-            showLoginView()
-        } else {
-            print("Logado como: \(PFUser.current()!.username!)")
-            let getChallenges = Challenges()
-            getChallenges.updataChallenges(completionHandler: { (resultSave) -> Void in
-                print("Resultado do completionHandler")
-                print(resultSave)
-                self.challengesTableView.reloadData()
-            })
-        }
-        
-        refresh.tintColor = UIColor.red
-        challengesTableView.addSubview(refresh)
-        
-        refresh.attributedTitle = NSAttributedString(string: "Atualizando dados")
-        refresh.addTarget(self, action: #selector(challengeViewController.refreshData(sender:)), for: UIControlEvents.valueChanged)
-        
-
-    }
-    
-    func refreshData(sender:AnyObject) {
-        print("REFRESH")
         let getChallenges = Challenges()
-        getChallenges.updataChallenges(completionHandler: { (resultSave) -> Void in
-            self.challengesTableView.reloadData()
-            self.refresh.endRefreshing()
-        })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        challengeResults.removeAll()
-        if (PFUser.current() == nil){
-            showLoginView()
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //return self.challenges.count
-        return challengesObjs.count
-    }
-    
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-        let myCell = tableView.dequeueReusableCell(withIdentifier: "challengeCell", for:  indexPath) as! challengeTableViewCell
-    
-        myCell.name.text   = challengesObjs[indexPath.row].name
-        myCell.status.text = challengesObjs[indexPath.row].status
-    
-        if challengesObjs[indexPath.row].status == "Em andamento" {
-            myCell.status.textColor = UIColor(red: 36/255, green: 185/255, blue: 90/255, alpha: 1)
-        }
-
-        return myCell as UITableViewCell
-    }
-    
-    //SELECT CHALLENGE
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toResultsSegue" {
-            let nextScene =  segue.destination as! resultsViewController
-            if let indexPath = self.challengesTableView.indexPathForSelectedRow {
-                let selectedVehicle = challengesObjs[indexPath.row]
-                nextScene.myChallenge = selectedVehicle
-                
+        getChallenges.countChallengesByThisUser(completionHandler: { (result) -> Void in
+            if result == 0 {
+                self.userchallenges.text = "Nenhuma prova registrada"
+            } else if result == 1 {
+                self.userchallenges.text = "1 prova registrada"
+            } else {
+                self.userchallenges.text = "\(result) provas registradas"
             }
-        }
-    }
-    
-    //end Select Challenge
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor(red: 252/255, green: 245/255, blue: 85/255, alpha: 1)
-        //240,255,80
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Veja os resultados"
-    }
-    
-    private func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let vw = UIView()
-        vw.backgroundColor = UIColor.red
+        })
         
-        return vw
+    }
+
+    @IBAction func logout(_ sender: Any) {
+        let alertController = UIAlertController(title: "Atenção", message: "Deseja sair da sua conta", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+        
+        let destroyAction = UIAlertAction(title: "Sair", style: .destructive) { action in
+            PFUser.logOut()
+            _ = PFUser.current()
+            self.showLoginView()
+            _ = self.navigationController?.popToRootViewController(animated:true)
+        }
+        
+        alertController.addAction(destroyAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true)
+
     }
     
-    
-    //MARK: Login methods
     var logInViewController:   PFLogInViewController! = PFLogInViewController()
     var signUpViewController: PFSignUpViewController! = PFSignUpViewController()
     
@@ -198,8 +134,19 @@ class challengeViewController: UIViewController, UITableViewDataSource, UITabBar
     func signUpViewControllerDidCancelSignUp(_ signUpController: PFSignUpViewController) {
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
     }
 
 }

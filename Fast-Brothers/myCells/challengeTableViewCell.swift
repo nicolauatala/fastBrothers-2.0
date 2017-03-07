@@ -25,6 +25,9 @@ class challengeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var time: UILabel!
     
+    @IBOutlet weak var local: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

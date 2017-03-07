@@ -15,21 +15,17 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var timerLabel: UILabel!
     
     var times = [String]()
+    var timesDouble = [Double]()
+    var challengeID = ""
+    
     
     let clock = Clock()
     var timer: Timer?
-    
-    var authentication = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timesTableView.tableFooterView = UIView()
         self.title = "Cronômetro"
-        
-        if authentication != true {
-            self.checkPassword()
-        }
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerViewController.updateTimeLabel), userInfo: nil, repeats: true)
     }
@@ -57,7 +53,28 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
 
 
     @IBAction func saveTheTime(_ sender: Any) {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        let myTime = clock.currentTime.timeIntervalSince1970
+        print("________")
+        print(formatter.string(from: clock.currentTime as Date))
+        print(Int(myTime))
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute, .second], from: date)
+        let hour = Double(components.hour!)
+        let minutes = Double(components.minute!)
+        let seconds = Double(components.second!)
+        
+        let currentTime: Double = (hour * 3600) + (minutes * 60) + seconds
+        print("Current time: \(currentTime)")
+        
+        //let myNSDate = Date(timeIntervalSince1970: currentTime)
+        //print(myNSDate)
+        
         times.append(timerLabel.text!)
+        timesDouble.append(currentTime)
         timesTableView.reloadData()
     }
     
@@ -90,25 +107,38 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        print("Select row at index \(indexPath.row)")
         
         let alertController = UIAlertController( title: "Atenção",
                                                  message: "Digite o número completo do piloto",
                                                  preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
-        let destroyAction = UIAlertAction(title: "Salvar", style: .default) { action in
-            print("Save time")
+        let saveAction = UIAlertAction(title: "Salvar", style: .default) { action in
+            
+            if let alertTextField = alertController.textFields?.first, alertTextField.text != nil {
+                print("Numero do piloto: \(alertTextField)")
+                let pilotTime = PilotTime(challenge: self.challengeID, especial: 0, gate: 0, lap: 0, time: Double(self.timesDouble[indexPath.row]), pilot: alertTextField.text!)
+                
+                pilotTime.saveTime(PilotTime: pilotTime)
+            }
+            
+            
+            print(self.timesDouble[indexPath.row])
             self.times.remove(at: indexPath.row)
             self.timesTableView.reloadData()
         }
         
+        saveAction.isEnabled = false
+        
         alertController.addTextField { textField in
             textField.placeholder = "Número do piloto"
             textField.keyboardType = .numberPad
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                saveAction.isEnabled = (textField.text?.characters.count)! == 3
+            }
         }
         
-        alertController.addAction(destroyAction)
+        alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true)
@@ -122,49 +152,5 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
         return title
     }
     
-    func checkPassword(){
-        //let nameChallenge = challengesByClass[indexPath.row].name
-        
-        let alertController = UIAlertController(title: "Atenção", message: "Informe a senha de acesso da prova", preferredStyle: .alert)
-        
-        let loginAction = UIAlertAction(title: "Entrar", style: .default) { [weak alertController] _ in
-            if let alertController = alertController {
-                _ = alertController.textFields![0] as UITextField
-                //let passwordTextField = alertController.textFields![1] as UITextField
-                //login(loginTextField.text, passwordTextField.text)
-                
-                //let loggedPage = self.storyboard?.instantiateViewController(withIdentifier: "timerViewController") as! timerViewController
-                //let loggedPageNav = UINavigationController (rootViewController: loggedPage)
-                //let appDelegate   = UIApplication.shared.delegate as! AppDelegate
-                //appDelegate.window?.rootViewController = loggedPageNav
-            }
-        }
-        loginAction.isEnabled = false
-        
-        let forgotPasswordAction = UIAlertAction(title: "Solicitar acesso", style: .destructive)
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { action in
-            print("Cancel")
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        
-        alertController.addTextField { textField in
-            textField.placeholder = "Senha de acesso"
-            
-            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
-                loginAction.isEnabled = textField.text != ""
-            }
-        }
-        
-        //alertController.addTextField { textField in
-        //textField.placeholder = "Password"
-        //.isSecureTextEntry = true
-        //}
-        
-        alertController.addAction(loginAction)
-        alertController.addAction(forgotPasswordAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true)
-    }
     
 }

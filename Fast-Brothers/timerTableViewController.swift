@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class timerTableViewController: UITableViewController {
 
@@ -18,6 +19,7 @@ class timerTableViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Cronometro"
         tableView.tableFooterView = UIView()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,20 +32,22 @@ class timerTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return challengesByClass.count
+        return challengesObjs.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let myCell = tableView.dequeueReusableCell(withIdentifier: "challengeCell", for:  indexPath) as! challengeTableViewCell
         
-        myCell.nameChallenge.text   = challengesByClass[indexPath.row].name
+        myCell.nameChallenge.text   = challengesObjs[indexPath.row].name
         
-         let description = "Voltas: " + String(challengesByClass[indexPath.row].turns) + ", Especial: " + String(challengesByClass[indexPath.row].especial)
+         let description = "Voltas: " + String(challengesObjs[indexPath.row].turns) + ", Especial: " + String(challengesObjs[indexPath.row].especial)
         myCell.descriptionChallenge.text = description
         
-        if indexPath.row == 0 {
+        if (challengesObjs[indexPath.row].whoRegistered.objectId == PFUser.current()!.objectId!)  {
             myCell.lockIcon.image = #imageLiteral(resourceName: "deslock")
+        } else {
+            myCell.lockIcon.image = #imageLiteral(resourceName: "lock")
         }
         
         return myCell as UITableViewCell
@@ -59,12 +63,14 @@ class timerTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "timerSegue" {
-            let nextScene =  segue.destination as! timerViewController
-            
+       
+        if segue.identifier == "locationSegue" {
+            let nextScene =  segue.destination as! timerLocationTableViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                //let selectedVehicle = vehicles[indexPath.row]
-                if indexPath.row == 0 {
+                let selectedVehicle = challengesObjs[indexPath.row]
+                nextScene.myChallenge = selectedVehicle
+                
+                if (challengesObjs[indexPath.row].whoRegistered.objectId == PFUser.current()!.objectId!)  {
                     nextScene.authentication = true
                 }
             }

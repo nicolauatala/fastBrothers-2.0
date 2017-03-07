@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
                 
-        self.window!.tintColor = UIColor(red: 255/255, green: 179/255, blue: 0/255, alpha: 1)
+        //self.window!.tintColor = UIColor(red: 226/255, green: 71/255, blue: 19/255, alpha: 1)
         
         let configuration = ParseClientConfiguration {
             $0.applicationId = "Zj3PVEMAe9GNGaRRxUvFIvG3p2Wm9UNJtBydmb4I"
@@ -30,9 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Parse.initialize(with: configuration)
-        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
-        
-        PFUser.enableRevocableSessionInBackground()
+       // PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+        //PFUser.enableRevocableSessionInBackground()
         
         return true
     }
@@ -40,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //Make sure it isn't already declared in the app delegate (possible redefinition of func error)
     func applicationDidBecomeActive(application: UIApplication) {
-        FBSDKAppEvents.activateApp()
+        //FBSDKAppEvents.activateApp()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

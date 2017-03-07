@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class recordTableViewController: UITableViewController {
 
@@ -19,6 +20,10 @@ class recordTableViewController: UITableViewController {
         self.title = "Registro"
         tableView.tableFooterView = UIView()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        recordsTime.removeAll()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,19 +41,31 @@ class recordTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return challengesByClass.count
+        return challengesObjs.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let myCell = tableView.dequeueReusableCell(withIdentifier: "challengeCell", for:  indexPath) as! challengeTableViewCell
         
-        myCell.nameChallenge.text   = challengesByClass[indexPath.row].name
+        myCell.nameChallenge.text   = challengesObjs[indexPath.row].name
         
-        let numberReg = ((indexPath.row + 1) * challengesByClass[indexPath.row].turns) * challengesByClass[indexPath.row].especial
-        myCell.descriptionChallenge.text = "Total de registros \(numberReg)"
+        //let numberReg = ((indexPath.row + 1) * challengesObjs[indexPath.row].turns) * challengesObjs[indexPath.row].especial
+        //myCell.descriptionChallenge.text = "Total de registros \(numberReg)"
+        myCell.descriptionChallenge.text = ""
         
         return myCell as UITableViewCell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toRecordsSegue" {
+            let nextScene =  segue.destination as! recordOfChallengeTableViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let selectedVehicle = challengesObjs[indexPath.row]
+                nextScene.myChallenge = selectedVehicle
+            }
+        }
     }
 
 }

@@ -19,15 +19,20 @@ class newChallengeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
     }
     
     
     @IBAction func savaChallenge(_ sender: Any) {
         
-        let newChallenge2 = Challenge(name: nameTextField.text!, password: passwordTextField.text!, turns: Int(voltasTextField.text!)!, especial: Int(especialTextField.text!)!, ch: Int(chTextField.text!)!, WhoRegistered: PFUser.current()!)
+        let newChallenge = Challenge(id: "", name: nameTextField.text!, password: passwordTextField.text!, turns: Int(voltasTextField.text!)!, especial: Int(especialTextField.text!)!, WhoRegistered: PFUser.current()!, status: "Em andamento")
         
-        challengesByClass.append(newChallenge2)
-        print("Save!")
+        let saveChallenge = Challenges()
+        saveChallenge.saveChallenge(challenge: newChallenge)
+        
+        
+        //challengesByClass.append(newChallenge2)
+
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -63,6 +68,16 @@ class newChallengeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 4
     }
+    
+}
 
-
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

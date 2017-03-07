@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		FC0228361E48B2A40070447B /* newChallengeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0228351E48B2A40070447B /* newChallengeTableViewController.swift */; };
 		FC0228381E48C4DF0070447B /* timerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0228371E48C4DF0070447B /* timerTableViewController.swift */; };
+		FC14628F1E6BAF3200C17262 /* PilotTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC14628E1E6BAF3200C17262 /* PilotTime.swift */; };
+		FC1462911E6C5AF700C17262 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1462901E6C5AF700C17262 /* Result.swift */; };
 		FC3D28C71E43C2D60036938A /* challengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D28C61E43C2D60036938A /* challengeTableViewCell.swift */; };
+		FC5093C81E5BC8200095285E /* Challenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5093C71E5BC8200095285E /* Challenges.swift */; };
 		FC87754F1E420E2900AE6E31 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC87754B1E420E2900AE6E31 /* Bolts.framework */; };
 		FC8775501E420E2900AE6E31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC87754C1E420E2900AE6E31 /* FBSDKCoreKit.framework */; };
 		FC8775511E420E2900AE6E31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC87754D1E420E2900AE6E31 /* FBSDKLoginKit.framework */; };
@@ -43,8 +46,12 @@
 		FCC8AB501E5B34AB0002C9E6 /* resultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8AB4F1E5B34AB0002C9E6 /* resultsViewController.swift */; };
 		FCC8AB521E5B3B9F0002C9E6 /* timerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8AB511E5B3B9F0002C9E6 /* timerViewController.swift */; };
 		FCC8AB541E5B721B0002C9E6 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8AB531E5B721B0002C9E6 /* Clock.swift */; };
+		FCD649C31E5D2463002D2540 /* settingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD649C21E5D2463002D2540 /* settingsTableViewController.swift */; };
+		FCD649C51E5D24CA002D2540 /* settingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD649C41E5D24CA002D2540 /* settingsTableViewCell.swift */; };
+		FCD649C71E5DBA00002D2540 /* timerLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD649C61E5DBA00002D2540 /* timerLocationTableViewController.swift */; };
+		FCD649C91E5DBBBF002D2540 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD649C81E5DBBBF002D2540 /* Location.swift */; };
+		FCDF444C1E5EF45B00D2283A /* anotations.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FCDF444B1E5EF45B00D2283A /* anotations.rtf */; };
 		FCFC73701E48F6AB007AF432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFC736F1E48F6AB007AF432 /* Assets.xcassets */; };
-		FCFEAB921E573E1F005848C6 /* challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFEAB911E573E1F005848C6 /* challenge.swift */; };
 		FCFEAB951E5779D5005848C6 /* recordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFEAB941E5779D5005848C6 /* recordTableViewController.swift */; };
 		FCFEAB971E5780DF005848C6 /* recordOfChallengeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFEAB961E5780DF005848C6 /* recordOfChallengeTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +59,10 @@
 /* Begin PBXFileReference section */
 		FC0228351E48B2A40070447B /* newChallengeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newChallengeTableViewController.swift; sourceTree = "<group>"; };
 		FC0228371E48C4DF0070447B /* timerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timerTableViewController.swift; sourceTree = "<group>"; };
+		FC14628E1E6BAF3200C17262 /* PilotTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PilotTime.swift; path = Classes/PilotTime.swift; sourceTree = "<group>"; };
+		FC1462901E6C5AF700C17262 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Classes/Result.swift; sourceTree = "<group>"; };
 		FC3D28C61E43C2D60036938A /* challengeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = challengeTableViewCell.swift; path = myCells/challengeTableViewCell.swift; sourceTree = "<group>"; };
+		FC5093C71E5BC8200095285E /* Challenges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Challenges.swift; path = Classes/Challenges.swift; sourceTree = "<group>"; };
 		FC87754B1E420E2900AE6E31 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = SDK/Bolts.framework; sourceTree = "<group>"; };
 		FC87754C1E420E2900AE6E31 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = SDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FC87754D1E420E2900AE6E31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = SDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -88,8 +98,12 @@
 		FCC8AB4F1E5B34AB0002C9E6 /* resultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultsViewController.swift; sourceTree = "<group>"; };
 		FCC8AB511E5B3B9F0002C9E6 /* timerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timerViewController.swift; sourceTree = "<group>"; };
 		FCC8AB531E5B721B0002C9E6 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Clock.swift; path = Classes/Clock.swift; sourceTree = "<group>"; };
+		FCD649C21E5D2463002D2540 /* settingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsTableViewController.swift; sourceTree = "<group>"; };
+		FCD649C41E5D24CA002D2540 /* settingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingsTableViewCell.swift; path = myCells/settingsTableViewCell.swift; sourceTree = "<group>"; };
+		FCD649C61E5DBA00002D2540 /* timerLocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = timerLocationTableViewController.swift; sourceTree = "<group>"; };
+		FCD649C81E5DBBBF002D2540 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Classes/Location.swift; sourceTree = "<group>"; };
+		FCDF444B1E5EF45B00D2283A /* anotations.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = anotations.rtf; path = "Fast-Brothers/anotations.rtf"; sourceTree = "<group>"; };
 		FCFC736F1E48F6AB007AF432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FCFEAB911E573E1F005848C6 /* challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = challenge.swift; path = Classes/challenge.swift; sourceTree = "<group>"; };
 		FCFEAB941E5779D5005848C6 /* recordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordTableViewController.swift; sourceTree = "<group>"; };
 		FCFEAB961E5780DF005848C6 /* recordOfChallengeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordOfChallengeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +142,7 @@
 		FC3D28C81E43C30F0036938A /* myCells */ = {
 			isa = PBXGroup;
 			children = (
+				FCD649C41E5D24CA002D2540 /* settingsTableViewCell.swift */,
 				FC3D28C61E43C2D60036938A /* challengeTableViewCell.swift */,
 			);
 			name = myCells;
@@ -144,12 +159,15 @@
 				FC87756A1E42452D00AE6E31 /* NexaHeavy.otf */,
 			);
 			name = Fonts;
+			path = "Fast-Brothers";
 			sourceTree = "<group>";
 		};
 		FC8C57501E392E4700D9576D = {
 			isa = PBXGroup;
 			children = (
+				FCDF444B1E5EF45B00D2283A /* anotations.rtf */,
 				FC8C575B1E392E4700D9576D /* Fast-Brothers */,
+				FC8775711E42453600AE6E31 /* Fonts */,
 				FC8C575A1E392E4700D9576D /* Products */,
 				FC8C57851E393EE600D9576D /* Frameworks */,
 			);
@@ -166,21 +184,22 @@
 		FC8C575B1E392E4700D9576D /* Fast-Brothers */ = {
 			isa = PBXGroup;
 			children = (
-				FCFEAB931E573E2C005848C6 /* classes */,
-				FC3D28C81E43C30F0036938A /* myCells */,
-				FC8775711E42453600AE6E31 /* Fonts */,
-				FCFC736F1E48F6AB007AF432 /* Assets.xcassets */,
-				FC8C575C1E392E4700D9576D /* AppDelegate.swift */,
-				FC8C57701E39336300D9576D /* challengeViewController.swift */,
-				FC0228351E48B2A40070447B /* newChallengeTableViewController.swift */,
-				FCC8AB4F1E5B34AB0002C9E6 /* resultsViewController.swift */,
-				FC0228371E48C4DF0070447B /* timerTableViewController.swift */,
-				FCC8AB511E5B3B9F0002C9E6 /* timerViewController.swift */,
-				FCFEAB941E5779D5005848C6 /* recordTableViewController.swift */,
-				FCFEAB961E5780DF005848C6 /* recordOfChallengeTableViewController.swift */,
 				FC8C57621E392E4700D9576D /* Main.storyboard */,
 				FC8C57671E392E4700D9576D /* LaunchScreen.storyboard */,
 				FC8C576A1E392E4700D9576D /* Info.plist */,
+				FCFEAB931E573E2C005848C6 /* classes */,
+				FC3D28C81E43C30F0036938A /* myCells */,
+				FCFC736F1E48F6AB007AF432 /* Assets.xcassets */,
+				FC8C575C1E392E4700D9576D /* AppDelegate.swift */,
+				FC8C57701E39336300D9576D /* challengeViewController.swift */,
+				FCC8AB4F1E5B34AB0002C9E6 /* resultsViewController.swift */,
+				FC0228351E48B2A40070447B /* newChallengeTableViewController.swift */,
+				FC0228371E48C4DF0070447B /* timerTableViewController.swift */,
+				FCD649C61E5DBA00002D2540 /* timerLocationTableViewController.swift */,
+				FCC8AB511E5B3B9F0002C9E6 /* timerViewController.swift */,
+				FCFEAB941E5779D5005848C6 /* recordTableViewController.swift */,
+				FCFEAB961E5780DF005848C6 /* recordOfChallengeTableViewController.swift */,
+				FCD649C21E5D2463002D2540 /* settingsTableViewController.swift */,
 			);
 			path = "Fast-Brothers";
 			sourceTree = "<group>";
@@ -225,7 +244,10 @@
 			isa = PBXGroup;
 			children = (
 				FCC8AB531E5B721B0002C9E6 /* Clock.swift */,
-				FCFEAB911E573E1F005848C6 /* challenge.swift */,
+				FC5093C71E5BC8200095285E /* Challenges.swift */,
+				FCD649C81E5DBBBF002D2540 /* Location.swift */,
+				FC14628E1E6BAF3200C17262 /* PilotTime.swift */,
+				FC1462901E6C5AF700C17262 /* Result.swift */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -298,6 +320,7 @@
 				FC87756F1E42452D00AE6E31 /* NexaBlack.otf in Resources */,
 				FC87756E1E42452D00AE6E31 /* Nexa-Regular-Italic.otf in Resources */,
 				FCFC73701E48F6AB007AF432 /* Assets.xcassets in Resources */,
+				FCDF444C1E5EF45B00D2283A /* anotations.rtf in Resources */,
 				FC87756C1E42452D00AE6E31 /* Nexa-Book.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,14 +333,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC0228381E48C4DF0070447B /* timerTableViewController.swift in Sources */,
+				FC14628F1E6BAF3200C17262 /* PilotTime.swift in Sources */,
+				FCD649C71E5DBA00002D2540 /* timerLocationTableViewController.swift in Sources */,
+				FCD649C91E5DBBBF002D2540 /* Location.swift in Sources */,
 				FC3D28C71E43C2D60036938A /* challengeTableViewCell.swift in Sources */,
+				FCD649C51E5D24CA002D2540 /* settingsTableViewCell.swift in Sources */,
 				FC0228361E48B2A40070447B /* newChallengeTableViewController.swift in Sources */,
+				FCD649C31E5D2463002D2540 /* settingsTableViewController.swift in Sources */,
 				FCFEAB971E5780DF005848C6 /* recordOfChallengeTableViewController.swift in Sources */,
-				FCFEAB921E573E1F005848C6 /* challenge.swift in Sources */,
+				FC5093C81E5BC8200095285E /* Challenges.swift in Sources */,
 				FCFEAB951E5779D5005848C6 /* recordTableViewController.swift in Sources */,
 				FCC8AB521E5B3B9F0002C9E6 /* timerViewController.swift in Sources */,
 				FC8C575D1E392E4700D9576D /* AppDelegate.swift in Sources */,
 				FC8C57711E39336300D9576D /* challengeViewController.swift in Sources */,
+				FC1462911E6C5AF700C17262 /* Result.swift in Sources */,
 				FCC8AB501E5B34AB0002C9E6 /* resultsViewController.swift in Sources */,
 				FCC8AB541E5B721B0002C9E6 /* Clock.swift in Sources */,
 			);
@@ -440,7 +469,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = ZXYSZCCRU7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,7 +476,7 @@
 					"$(PROJECT_DIR)/Fast-Brothers/SDK",
 				);
 				INFOPLIST_FILE = "Fast-Brothers/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nicolauAtala.Fast-Brothers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,7 +488,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = ZXYSZCCRU7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,7 +495,7 @@
 					"$(PROJECT_DIR)/Fast-Brothers/SDK",
 				);
 				INFOPLIST_FILE = "Fast-Brothers/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nicolauAtala.Fast-Brothers";
 				PRODUCT_NAME = "$(TARGET_NAME)";

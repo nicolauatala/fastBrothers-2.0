@@ -36,8 +36,7 @@ class challengeViewController: UIViewController, UITableViewDataSource, UITabBar
             print("Logado como: \(PFUser.current()!.username!)")
             let getChallenges = Challenges()
             getChallenges.updataChallenges(completionHandler: { (resultSave) -> Void in
-                print("Resultado do completionHandler")
-                print(resultSave)
+                //print("Resultado do completionHandler")
                 self.challengesTableView.reloadData()
             })
         }
@@ -66,7 +65,6 @@ class challengeViewController: UIViewController, UITableViewDataSource, UITabBar
         if (PFUser.current() == nil){
             showLoginView()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -134,8 +132,6 @@ class challengeViewController: UIViewController, UITableViewDataSource, UITabBar
         let logoView = UIImageView(image: UIImage(named:"logo-fastBrothers-text-2.png"))
         logoView.contentMode = UIViewContentMode.scaleAspectFit
         self.logInViewController.logInView?.logo = logoView
-        
-        
         
         self.logInViewController.logInView!.usernameField?.placeholder = "Usuário"
         self.logInViewController.logInView!.passwordField?.placeholder = "Senha"

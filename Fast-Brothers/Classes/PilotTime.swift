@@ -30,7 +30,15 @@ class PilotTime {
     }
     
     func saveTime(PilotTime: PilotTime) {
-        print("Salvo")
+        
+        //let closed = Int(PilotTime.time.truncatingRemainder(dividingBy: 60))
+        //let timeClosed = PilotTime.time - Double(closed)
+        //
+        //let formatterTime = DateFormatter()
+        //formatterTime.timeStyle = .medium
+        //let myNSDate = Date(timeIntervalSince1970: timeClosed)
+        //print(formatterTime.string(from: myNSDate))
+        
         let saveTime = PFObject(className:"PilotTime")
         saveTime["challenge"] = PilotTime.challenge
         saveTime["especial"] = PilotTime.especial
@@ -41,15 +49,15 @@ class PilotTime {
         saveTime.saveInBackground {
             (success: Bool, error: Error?) -> Void in
             if (success) {
-                print("Challenge Saved")
+                print("Time Saved")
             } else {
-                print("Challenge not save")
+                print("Time not save")
             }
         }
     }
     
     func getAllRecords(challenge:String, completionHandler:@escaping (Bool) -> ()) {
-        print("ID Challenge: \(challenge)")
+        //print("ID Challenge: \(challenge)")
         let query = PFQuery(className:"PilotTime")
         query.whereKey("challenge", equalTo: challenge)
         query.findObjectsInBackground { (objects:[PFObject]?, error:Error?) -> Void in
@@ -67,7 +75,7 @@ class PilotTime {
                         
                         recordsTime.append(newRecord)
                         
-                        print("PilotTime adicionado")
+                        //print("PilotTime adicionado")
                     }
                 }
                 completionHandler(true)
@@ -78,11 +86,3 @@ class PilotTime {
     }
     
 }
-
-//TimeOfPilot:
-//challengeId
-//whereLocation
-//time
-//numberOfPilot
-//
-//Calculate timeOfPilot

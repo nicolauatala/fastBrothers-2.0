@@ -17,6 +17,8 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
     var times = [String]()
     var timesDouble = [Double]()
     var challengeID = ""
+    var especialSelected = Int()
+    var gate = Int()
     
     
     let clock = Clock()
@@ -70,8 +72,10 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
         let currentTime: Double = (hour * 3600) + (minutes * 60) + seconds
         print("Current time: \(currentTime)")
         
-        //let myNSDate = Date(timeIntervalSince1970: currentTime)
-        //print(myNSDate)
+        let closed: Double = currentTime.truncatingRemainder(dividingBy: 60)
+        let timeClosed: UnixTime = Int(currentTime - closed)
+        
+        print(timeClosed.toHour)
         
         times.append(timerLabel.text!)
         timesDouble.append(currentTime)
@@ -108,6 +112,8 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
+        print(self.timesDouble[indexPath.row])
+        
         let alertController = UIAlertController( title: "Atenção",
                                                  message: "Digite o número completo do piloto",
                                                  preferredStyle: .alert)
@@ -117,7 +123,7 @@ class timerViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             if let alertTextField = alertController.textFields?.first, alertTextField.text != nil {
                 print("Numero do piloto: \(alertTextField)")
-                let pilotTime = PilotTime(challenge: self.challengeID, especial: 0, gate: 0, lap: 0, time: Double(self.timesDouble[indexPath.row]), pilot: alertTextField.text!)
+                let pilotTime = PilotTime(challenge: self.challengeID, especial: self.especialSelected, gate: self.gate, lap: 0, time: Double(self.timesDouble[indexPath.row]), pilot: alertTextField.text!)
                 
                 pilotTime.saveTime(PilotTime: pilotTime)
             }

@@ -33,7 +33,7 @@ class Challenges {
                             status: object["status"] as! String)
                         
                         challengesObjs.append(newChallenge)
-                        print("Objeto adicionado")
+                        ///print("Objeto adicionado")
                     }
                 }
                 completionHandler(true)

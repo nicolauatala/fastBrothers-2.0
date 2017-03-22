@@ -131,12 +131,14 @@ class timerLocationTableViewController: UITableViewController {
             nextScene.challengeID = myChallenge.id
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                print("Index row selected: \(indexPath.row)")
-                
+                print("Index especial: \(indexPath.row)")
+                nextScene.especialSelected = indexPath.row
                 if indexPath.row % 2 == 0 {
                     print("entrada")
+                    nextScene.gate = 0
                 } else {
                     print("saida")
+                    nextScene.gate = 1
                 }
                 
             }

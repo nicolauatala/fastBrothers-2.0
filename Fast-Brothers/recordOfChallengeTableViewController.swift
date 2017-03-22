@@ -24,7 +24,7 @@ class recordOfChallengeTableViewController: UITableViewController {
         
         let getRecords = PilotTime(challenge: "", especial: 0, gate: 0, lap: 0, time: 0.0, pilot: "")
         getRecords.getAllRecords(challenge: myChallenge.id,completionHandler: { (resultSave) -> Void in
-            print("getAllRecords complete")
+            //print("getAllRecords complete")
             self.tableView.reloadData()
         })
     }
@@ -46,16 +46,24 @@ class recordOfChallengeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let myCell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for:  indexPath) as! challengeTableViewCell
-        
-        let generalTime = Date(timeIntervalSince1970: recordsTime[indexPath.row].time)
-        
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        
         var stringText = ""
-
-        stringText += "Especial: \(String(recordsTime[indexPath.row].especial)) | " + formatter.string(from: generalTime)
         
+        var theEspecial = 0
+        if recordsTime[indexPath.row].especial != 0{
+            theEspecial = (recordsTime[indexPath.row].especial/2)+1
+        } else {
+            theEspecial = recordsTime[indexPath.row].especial + 1
+        }
+
+//        let numberOfEspecial = self.numberOfEspecial(especial: recordsTime[indexPath.row].especial)
+        
+        stringText += "Especial: \(theEspecial) | "
+        
+        if recordsTime[indexPath.row].gate == 0 { stringText += "entrada | " } else { stringText += "saida | " }
+        
+        let timeClosed: UnixTime = Int(recordsTime[indexPath.row].time)
+        
+        stringText += timeClosed.toHour
         myCell.recordCell.text   = stringText
         
         if indexPath.row % 2 == 0 {
@@ -65,6 +73,33 @@ class recordOfChallengeTableViewController: UITableViewController {
         }
         
         return myCell as UITableViewCell
+    }
+    
+    func numberOfEspecial(especial: Int) -> Int{
+        var esp = 0
+        switch especial {
+            case 0: esp = 1
+            case 1: esp = 1
+            case 0: esp = 2
+            case 1: esp = 2
+            case 0: esp = 3
+            case 1: esp = 3
+            case 0: esp = 4
+            case 1: esp = 4
+            case 0: esp = 5
+            case 1: esp = 5
+            case 0: esp = 6
+            case 1: esp = 6
+            case 0: esp = 7
+            case 1: esp = 7
+            case 0: esp = 8
+            case 1: esp = 8
+            case 0: esp = 9
+            case 1: esp = 9
+            default: break
+        }
+
+        return esp
     }
 
 }

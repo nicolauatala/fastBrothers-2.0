@@ -15,6 +15,7 @@ class resultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     //var myResults = [String]()
+    let refresh = UIRefreshControl()
     
     var myChallenge = Challenge(id: "", name:"", password:"", turns: 0, especial: 0, WhoRegistered: PFUser.current()!, status: "")
     
@@ -25,15 +26,39 @@ class resultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.title = "Resultados"
         
-        print(myChallenge.turns)
-        print(myChallenge.especial)
+        print("Nome da prova: \(myChallenge.name)")
+        print("Especial: \(myChallenge.especial)")
+        print("Voltas: \(myChallenge.turns)")
+        print("__________")
         
-        let getResults = Results()
-        getResults.getPilotTimes(challenge:myChallenge.id,completionHandler: { (resultSave) -> Void in
-            print("getResults")
-            self.tableView.reloadData()
-        })
+        getData()
+        
+        refresh.tintColor = UIColor.red
+        tableView.addSubview(refresh)
+        
+        refresh.attributedTitle = NSAttributedString(string: "Atualizando dados")
+        refresh.addTarget(self, action: #selector(resultsViewController.refreshData(sender:)), for: UIControlEvents.valueChanged)
+        
+        
 
+    }
+    
+    func refreshData(sender:AnyObject) {
+        getData()
+    }
+    
+    func getData(){
+        let getResults = Results()
+        getResults.getPilotTimes(challenge:myChallenge.id, qntdEspecial: myChallenge.especial, turn: myChallenge.turns, completionHandler: { (resultSave) -> Void in
+            challengeResults.sort{ $0.time < $1.time }
+            
+            for n in challengeResults{
+                //print(n.time)
+            }
+            
+            self.tableView.reloadData()
+            self.refresh.endRefreshing()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,13 +71,9 @@ class resultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch segmentedControl.selectedSegmentIndex
         {
         case 0: break
-            //myResults.removeAll()
-            //myResults = ["1º   |   E33   |   15:38:44", "2º   |   E33   |   15:38:44", "3º   |   E33   |   15:38:44", "4º   |   E33   |   15:38:44"]
-            //tableView.reloadData()
+           
         case 1: break
-            //myResults.removeAll()
-            //myResults = ["1º   |   E33   |   15:38:44", "2º   |   E33   |   15:38:44"]
-            //tableView.reloadData()
+           
         default:
             break
         }
@@ -65,7 +86,6 @@ class resultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return challengeResults.count
-        //myResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +97,11 @@ class resultsViewController: UIViewController, UITableViewDelegate, UITableViewD
             myCell.backgroundColor = UIColor.groupTableViewBackground
         }
        
-        let string = String(indexPath.row+1) + "º | " + String(challengeResults[indexPath.row].pilot) + " | " + timePilot()
+        let timePilot = Int(challengeResults[indexPath.row].time)
+        
+        let string = String(indexPath.row+1) + "º | " + String(challengeResults[indexPath.row].pilot) + " | " + timePilot.toHour
+            
+            //timePilot()
         
         myCell.resultsCell.text   = string
         
@@ -86,12 +110,6 @@ class resultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func timePilot() -> String{
         let time: UnixTime = ((myChallenge.especial * 1800) * myChallenge.turns)
-        //var myMilliseconds: UnixTime = 1470075992
-
-//        let generalTime = Date(timeIntervalSince1970: TimeInterval(time))
-//        let formatter = DateFormatter()
-//        formatter.timeStyle = .medium
-        
         return String(time.toHour)
     }
 
@@ -113,5 +131,3 @@ extension UnixTime {
         return formatType(form: "HH:mm:ss").string(from: dateFull)
     }
 }
-
-//print(myMilliseconds.toDay)
